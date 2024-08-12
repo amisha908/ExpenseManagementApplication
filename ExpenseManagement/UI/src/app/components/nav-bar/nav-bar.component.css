@@ -1,0 +1,32 @@
+
+
+/* src/app/components/user-home/user-home.component.css */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .bi-plus-lg {
+    margin-right: 5px;
+  }
+  

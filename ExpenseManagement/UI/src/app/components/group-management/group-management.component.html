@@ -1,0 +1,138 @@
+<div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-danger me-2" (click)="navigateToUserHome()">Back</button>
+
+  <h2>Group Management</h2>
+
+  <form #form="ngForm" (ngSubmit)="createGroup(form)" class="mb-3 needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="addGroupRequest.name"
+        name="name"
+        required
+        (input)="validateFormField(form, 'name')"
+        [class.is-invalid]="form.submitted && form.controls['name'].invalid && form.controls['name'].touched">
+      <div class="invalid-feedback" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+        Name is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <input
+        type="text"
+        id="description"
+        class="form-control"
+        [(ngModel)]="addGroupRequest.description"
+        name="description"
+        required
+        (input)="validateFormField(form, 'description')"
+        [class.is-invalid]="form.submitted && form.controls['description'].invalid && form.controls['description'].touched">
+      <div class="invalid-feedback" *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <ng-multiselect-dropdown
+        [placeholder]="'Select Members'"
+        [settings]="dropdownSettings"
+        [data]="users"
+        [(ngModel)]="selectedUsers"
+        name="members"
+        (onSelect)="onItemSelect($event, form)"
+        (onDeSelect)="onItemDeselect($event, form)"
+        (onSelectAll)="onSelectAll($event, form)"
+        (onDeSelectAll)="onDeselectAll(form)"
+        (ngModelChange)="validateMembersField(form)"
+        required
+        [class.is-invalid]="form.submitted && !selectedUsers.length">
+      </ng-multiselect-dropdown>
+      <div class="invalid-feedback" *ngIf="form.submitted && !selectedUsers.length">
+        At least one member is required.
+      </div>
+    </div>
+
+    <div *ngIf="memberLimitWarning" class="alert alert-warning">
+      Not more than 10 members can be added to a group.
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Group</button>
+  </form>
+</div>
+
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+
+<!-- <div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-danger me-2" (click)="navigateToUserHome()">Back</button>
+
+  <h2>Group Management</h2>
+
+  <form #form="ngForm" (ngSubmit)="createGroup(form)" class="mb-3 needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="addGroupRequest.name"
+        name="name"
+        required
+        (input)="validateFormField(form, 'name')"
+        [class.is-invalid]="form.submitted && form.controls['name'].invalid && form.controls['name'].touched">
+      <div class="invalid-feedback" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+        Name is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <input
+        type="text"
+        id="description"
+        class="form-control"
+        [(ngModel)]="addGroupRequest.description"
+        name="description"
+        required
+        (input)="validateFormField(form, 'description')"
+        [class.is-invalid]="form.submitted && form.controls['description'].invalid && form.controls['description'].touched">
+      <div class="invalid-feedback" *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <ng-multiselect-dropdown
+        [placeholder]="'Select Members'"
+        [settings]="dropdownSettings"
+        [data]="users"
+        [(ngModel)]="selectedUsers"
+        name="members"
+        (onSelect)="onItemSelect($event, form)"
+        (onSelectAll)="onSelectAll($event, form)"
+        (ngModelChange)="validateMembersField(form)"
+        required
+        [class.is-invalid]="form.submitted && !selectedUsers.length">
+      </ng-multiselect-dropdown>
+      <div class="invalid-feedback" *ngIf="form.submitted && !selectedUsers.length">
+        At least one member is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Group</button>
+  </form>
+</div>
+
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div>
+ -->

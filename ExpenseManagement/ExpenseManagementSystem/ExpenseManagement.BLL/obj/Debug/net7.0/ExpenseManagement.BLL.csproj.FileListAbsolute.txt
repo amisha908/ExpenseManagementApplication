@@ -1,0 +1,15 @@
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\bin\Debug\net7.0\ExpenseManagement.BLL.deps.json
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\bin\Debug\net7.0\ExpenseManagement.BLL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\bin\Debug\net7.0\ExpenseManagement.BLL.pdb
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\bin\Debug\net7.0\ExpenseManagement.DAL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\bin\Debug\net7.0\ExpenseManagement.DAL.pdb
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.csproj.AssemblyReference.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.AssemblyInfoInputs.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.AssemblyInfo.cs
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.csproj.CoreCompileInputs.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.csproj.CopyComplete
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\refint\ExpenseManagement.BLL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ExpenseManagement.BLL.pdb
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.BLL\obj\Debug\net7.0\ref\ExpenseManagement.BLL.dll

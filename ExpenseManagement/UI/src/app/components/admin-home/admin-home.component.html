@@ -1,0 +1,83 @@
+<div class="container mt-5">
+  <mat-tab-group>
+    <mat-tab label="Groups">
+      <ng-template mat-tab-label>
+        <mat-icon>group</mat-icon>
+        Groups
+      </ng-template>
+
+      <div *ngIf="groups && groups.length">
+        <div class="row">
+          <div *ngFor="let group of groups" class="col-md-4 mb-4 d-flex">
+            <div class="card shadow-sm flex-fill d-flex flex-column">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title">{{ group.name }}</h3>
+                <p class="card-text">{{ group.description }}</p>
+                <p class="card-text mt-auto"><small class="text-muted">Created on: {{ group.createdDate | date }}</small></p>
+                <button class="btn btn-danger mt-3" (click)="deleteGroup(group.id)">Delete Group</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!groups.length" class="text-center">
+        <p>No groups available.</p>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Users">
+      <ng-template mat-tab-label>
+        <mat-icon>person</mat-icon>
+        Users
+      </ng-template>
+
+      <div *ngIf="users && users.length">
+        <div id="accordion">
+          <div *ngFor="let user of users" class="card">
+            <div class="card-header" id="heading{{ user.id }}">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#collapseUser' + user.id" aria-expanded="true" [attr.aria-controls]="'collapseUser' + user.id">
+                  {{ user.name }} ({{ user.email }})
+                </button>
+              </h5>
+            </div>
+
+            <div [id]="'collapseUser' + user.id" class="collapse"  data-parent="#accordion">
+              <div class="card-body">
+                <!-- Add user details here if needed -->
+                <p>User ID: {{ user.id }}</p>
+                <p>User Password: {{ user.password }}</p>
+                <!-- Display other user information as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!users.length" class="text-center">
+        <p>No users available.</p>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+<!-- <div class="container mt-5">
+  <h2 class="text-center mb-4">All Groups</h2>
+  <div *ngIf="groups && groups.length">
+    <div class="row">
+      <div *ngFor="let group of groups" class="col-md-4 mb-4 d-flex">
+        <div class="card shadow-sm flex-fill d-flex flex-column">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title">{{ group.name }}</h3>
+            <p class="card-text">{{ group.description }}</p>
+            <p class="card-text mt-auto"><small class="text-muted">Created on: {{ group.createdDate | date }}</small></p>
+            <button class="btn btn-danger mt-3" (click)="deleteGroup(group.id)">Delete Group</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!groups.length" class="text-center">
+    <p>No groups available.</p>
+  </div>
+</div> -->

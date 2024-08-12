@@ -1,0 +1,17 @@
+.split-expenses-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .split-expenses-btn:hover {
+    background-color: black; /* Bootstrap success color */
+    color: white;
+  }
+  .settle-status {
+    margin-left: 10px;
+  }
+  
+  .settle-status .fas {
+    margin-right: 5px;
+  }
+  

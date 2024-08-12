@@ -1,0 +1,46 @@
+<div class="container mt-4" *ngIf="!loading">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Total Owes</h5>
+          <p class="card-text display-4 text-danger">₹{{ totalOwes.toFixed(2) }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Total Owns</h5>
+          <p class="card-text display-4 text-success">₹{{ totalOwns.toFixed(2) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Your Groups</h3>
+    <button class="btn btn-primary" routerLink="/group-management">
+      <i class="bi bi-plus-lg"></i> Add New Group
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let group of groups">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ group.name }}</h5>
+          <p class="card-text">{{ group.description }}</p>
+          <a [routerLink]="['/group', group.id]" class="btn btn-primary">View Group</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="text-center mt-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div>
+

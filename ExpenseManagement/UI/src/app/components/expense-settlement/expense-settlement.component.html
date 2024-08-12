@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>Expense Settlement</h2>
+    
+    <form (ngSubmit)="settleExpense()">
+      <div class="mb-3">
+        <label for="expenseDescription" class="form-label">Expense Description:</label>
+        <input type="text" id="expenseDescription" [(ngModel)]="settlement.description" name="description" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="settledBy" class="form-label">Settled By:</label>
+        <input type="text" id="settledBy" [(ngModel)]="settlement.settledBy" name="settledBy" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="settledWith" class="form-label">Settled With:</label>
+        <input type="text" id="settledWith" [(ngModel)]="settlement.settledWith" name="settledWith" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="settlementAmount" class="form-label">Settlement Amount:</label>
+        <input type="number" id="settlementAmount" [(ngModel)]="settlement.amount" name="amount" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="settlementDate" class="form-label">Settlement Date:</label>
+        <input type="date" id="settlementDate" [(ngModel)]="settlement.date" name="date" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Settle Expense</button>
+    </form>
+    
+    <h3 class="mt-4">Current Balances</h3>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let balance of balances">
+        {{ balance.user }}: {{ balance.amount | currency }}
+      </li>
+    </ul>
+  </div>
+  

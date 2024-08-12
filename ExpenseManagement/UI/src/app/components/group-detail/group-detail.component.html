@@ -1,0 +1,360 @@
+<div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-primary mb-4" (click)="goBack()">Back to Home</button>
+  <button class="btn btn-outline-primary mb-4" (click)="navigateToAddExpense()">Add Expense</button>
+
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2>Group Details</h2>
+      <button class="btn btn-outline-success split-expenses-btn" (click)="splitExpenses()">Split Expenses</button>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Name: {{ group.name }}</h4>
+      <p class="card-text">Description: {{ group.description }}</p>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Members</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let member of members">
+        <strong>{{ member.name }}</strong>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Expenses</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Paid By</th>
+            <th>Action</th>
+            <th>Settlement Status</th> <!-- New column for settlement status -->
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let expense of expenses">
+            <tr>
+              <td>{{ expense.description }}</td>
+              <td>${{ expense.amount }}</td>
+              <td>{{ expense.date | date }}</td>
+              <td>{{ expense.name }}</td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm" (click)="settleExpense(expense)" >Settle Expense</button>
+              </td>
+              
+              <td>
+                <span *ngIf="expense.isSettled ==='False'" class="text-danger">
+                  <i class="bi bi-x-circle-fill"></i> Not Settled 
+                </span>
+                <span *ngIf="expense.isSettled ==='True'" class="text-success">
+                  <i class="bi bi-check-circle-fill"></i> Settled 
+                </span>
+               
+              </td>
+            </tr>
+            <tr *ngIf="expense.expenseSplits && expense.expenseSplits.length > 0">
+              <td colspan="6">
+                <div class="card">
+                  <div class="card-header bg-light">
+                    <h4>Splits for: {{ expense.description }}</h4>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>User</th>
+                          <th>Amount</th>
+                          <th>Owe</th>
+                          <th>Own</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let split of expense.expenseSplits">
+                          <td>{{ split.userName }}</td>
+                          <td>${{ split.amount }}</td>
+                          <td>${{ split.owe }}</td>
+                          <td>${{ split.own }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="container text-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div>
+
+
+<!-- <div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-primary mb-4" (click)="goBack()">Back to Home</button>
+  <button class="btn btn-outline-primary mb-4" (click)="navigateToAddExpense()">Add Expense</button>
+
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2>Group Details</h2>
+      <button class="btn btn-outline-success split-expenses-btn" (click)="splitExpenses()">Split Expenses</button>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Name: {{ group.name }}</h4>
+      <p class="card-text">Description: {{ group.description }}</p>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Members</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let member of members">
+        <strong>{{ member.name }}</strong>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Expenses</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Paid By</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let expense of expenses">
+            <tr>
+              <td>{{ expense.description }}</td>
+              <td>${{ expense.amount }}</td>
+              <td>{{ expense.date | date }}</td>
+              <td>{{ expense.name }}</td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm" (click)="settleExpense(expense)">Settle Expense</button>
+              </td>
+            </tr>
+            <tr *ngIf="expense.expenseSplits && expense.expenseSplits.length > 0">
+              <td colspan="5">
+                <div class="card">
+                  <div class="card-header bg-light">
+                    <h4>Splits for: {{ expense.description }}</h4>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>User</th>
+                          <th>Amount</th>
+                          <th>Owe</th>
+                          <th>Own</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let split of expense.expenseSplits">
+                          <td>{{ split.userName }}</td>
+                          <td>${{ split.amount }}</td>
+                          <td>${{ split.owe }}</td>
+                          <td>${{ split.own }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="container text-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div> -->
+
+
+<!-- <div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-primary mb-4" (click)="goBack()">Back to Home</button>
+  <button class="btn btn-outline-primary mb-4" (click)="navigateToAddExpense()">Add Expense</button>
+
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2>Group Details</h2>
+      <button class="btn btn-outline-success split-expenses-btn" (click)="splitExpenses()">Split Expenses</button>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Name: {{ group.name }}</h4>
+      <p class="card-text">Description: {{ group.description }}</p>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Members</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let member of members">
+        <strong>{{ member.name }}</strong>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-info text-white">
+      <h3>Expenses</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let expense of expenses">
+        <p><strong>Description:</strong> {{ expense.description }}</p>
+
+        <p><strong>Amount:</strong> ${{ expense.amount }}</p>
+        <p><strong>Date:</strong> {{ expense.date | date }}</p>
+        <p><strong>Paid By:</strong> {{ expense.name }}</p>
+        <button class="btn btn-outline-primary" (click)="settleExpense(expense)">Settle Expense</button>
+       
+        <h4>Splits:</h4>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let split of expense.expenseSplits">
+            {{ split.userName }}: ${{ split.amount }}<br>
+            <span class="text-success">Owe: ${{ split.owe }}</span><br>
+            <span class="text-danger">Own: ${{ split.own }}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container text-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div> -->
+
+
+
+<!-- <div class="container mt-4" *ngIf="!loading">
+  <button class="btn btn-outline-primary mb-4" (click)="goBack()">Back to Home</button>
+  <button class="btn btn-outline-primary mb-4" (click)="navigateToAddExpense()">Add Expense</button>
+   <div class="card mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h2>Group Details</h2>
+      <button class="btn btn-outline-success split-expenses-btn" (click)="splitExpenses()">Split Expenses</button>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Name: {{ group.name }}</h4>
+      <p class="card-text">Description: {{ group.description }}</p>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-secondary text-white">
+      <h3>Members</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let member of members">
+        <strong>{{ member.name }}</strong>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-info text-white">
+      <h3>Expenses</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let expense of expenses">
+        <p><strong>Description:</strong> {{ expense.description }}</p>
+        <p><strong>Amount:</strong> ${{ expense.amount }}</p>
+        <p><strong>Date:</strong> {{ expense.date | date }}</p>
+        <p><strong>Paid By:</strong> {{ expense.name }}</p>
+        <h4>Splits:</h4>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let split of expense.expenseSplits ">
+            {{ (split.userName) }}: ${{ split.amount }}<br>
+            <span class="text-success">Owe: ${{ split.owe }}</span><br>
+            <span class="text-danger">Own: ${{ split.own }}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container text-center mt-5" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading...</p>
+</div> -->
+
+
+<!-- <div *ngIf="!loading">
+    <h2>Group Details</h2>
+    <p>Name: {{ group?.name }}</p>
+    <p>Description: {{ group?.description }}</p>
+  
+    <h3>Members</h3>
+    <ul>
+      <li *ngFor="let member of group?.memberIds">
+        {{ member.name }} ({{ member.email }})
+      </li>
+    </ul>
+  
+    <h3>Expenses</h3>
+    <ul>
+      <li *ngFor="let expense of expenses">
+        <p>Description: {{ expense.description }}</p>
+        <p>Amount: ${{ expense.amount }}</p>
+        <p>Date: {{ expense.date | date }}</p>
+        <p>Paid By: {{ expense.name }}</p>
+        <h4>Splits:</h4>
+        <ul>
+          <li *ngFor="let split of expense.expenseSplits | unique: 'userId'">
+            {{ getMemberNameById(split.userId) }}: ${{ split.amount }}
+            <br>
+            Owe: ${{ split.owe }}
+            <br>
+            Own: ${{ split.own }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="loading">
+    <p>Loading...</p>
+  </div>
+   -->

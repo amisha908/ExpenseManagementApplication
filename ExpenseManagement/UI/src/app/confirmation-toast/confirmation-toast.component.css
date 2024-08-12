@@ -1,0 +1,8 @@
+.toast-message {
+    margin-bottom: 10px;
+  }
+  .toast-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  

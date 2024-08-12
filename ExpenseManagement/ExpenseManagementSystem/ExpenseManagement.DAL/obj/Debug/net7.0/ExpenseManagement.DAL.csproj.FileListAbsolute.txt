@@ -1,0 +1,12 @@
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\bin\Debug\net7.0\ExpenseManagement.DAL.deps.json
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\bin\Debug\net7.0\ExpenseManagement.DAL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\bin\Debug\net7.0\ExpenseManagement.DAL.pdb
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.csproj.AssemblyReference.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.AssemblyInfoInputs.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.AssemblyInfo.cs
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.csproj.CoreCompileInputs.cache
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\refint\ExpenseManagement.DAL.dll
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ExpenseManagement.DAL.pdb
+C:\Users\amisha01\OneDrive - Nagarro\Desktop\ExpenseManagement\ExpenseManagementSystem\ExpenseManagement.DAL\obj\Debug\net7.0\ref\ExpenseManagement.DAL.dll

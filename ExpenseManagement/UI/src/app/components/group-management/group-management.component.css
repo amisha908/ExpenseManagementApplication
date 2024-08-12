@@ -1,0 +1,29 @@
+/* group-management.component.css */
+
+.needs-validation .is-invalid {
+    border-color: #dc3545;
+  }
+  
+  .invalid-feedback {
+    display: block;
+  }
+  
+  .logout-button:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  .toast-bottom-right {
+    right: 12px;
+    bottom: 12px;
+  }
+  .toast-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: #000000;
+    opacity: 0.3;
+  }
+  .toast-title {
+    font-weight: bold;
+  }
